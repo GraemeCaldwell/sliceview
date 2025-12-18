@@ -199,6 +199,21 @@ footer p {
   font-style: italic;
 }
 
+footer .author {
+  margin-top: calc(var(--base-unit) * 2);
+  font-style: normal;
+  font-size: 0.8rem;
+}
+
+footer .author a {
+  color: #A8A8A0;
+  text-decoration: none;
+}
+
+footer .author a:hover {
+  color: var(--color-text-muted);
+}
+
 /* Hidden utility */
 
 [hidden] {
