@@ -1,0 +1,230 @@
+/* SliceView — Bringhurst-Inspired Design */
+
+:root {
+  --color-bg: #FFFEF9;
+  --color-text: #2C2C2C;
+  --color-text-muted: #6B6B6B;
+  --color-border: #E0DED8;
+  --color-accent: #8B7355;
+  --font-serif: 'Crimson Pro', Georgia, 'Times New Roman', serif;
+  --font-mono: 'SF Mono', Monaco, 'Cascadia Code', monospace;
+  --base-unit: 8px;
+  --max-width: 720px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+body {
+  font-family: var(--font-serif);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: calc(var(--base-unit) * 6) calc(var(--base-unit) * 3);
+}
+
+main {
+  max-width: var(--max-width);
+  width: 100%;
+  margin: 0 auto;
+  flex: 1;
+}
+
+/* Typography */
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  margin-bottom: calc(var(--base-unit) * 2);
+}
+
+h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: calc(var(--base-unit) * 1.5);
+}
+
+.subtitle {
+  color: var(--color-text-muted);
+  font-style: italic;
+  max-width: 540px;
+}
+
+header {
+  margin-bottom: calc(var(--base-unit) * 6);
+}
+
+/* Horizontal Rules */
+
+hr {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: calc(var(--base-unit) * 4) 0;
+}
+
+/* Buttons */
+
+button {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  background: transparent;
+  border: 1px solid var(--color-text);
+  color: var(--color-text);
+  padding: calc(var(--base-unit) * 1) calc(var(--base-unit) * 2.5);
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+button:hover {
+  background-color: var(--color-text);
+  color: var(--color-bg);
+}
+
+button:active {
+  opacity: 0.8;
+}
+
+/* Drop Zone */
+
+#drop-zone {
+  border: 1px dashed var(--color-border);
+  padding: calc(var(--base-unit) * 8) calc(var(--base-unit) * 4);
+  text-align: center;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+#drop-zone.drag-over {
+  border-color: var(--color-accent);
+  background-color: rgba(139, 115, 85, 0.05);
+}
+
+#drop-zone p {
+  color: var(--color-text-muted);
+}
+
+#drop-zone .or {
+  font-style: italic;
+  margin: calc(var(--base-unit) * 2) 0;
+  font-size: 0.9rem;
+}
+
+#choose-file-btn {
+  margin-top: calc(var(--base-unit) * 1);
+}
+
+/* Results Section */
+
+#results-section {
+  margin-top: calc(var(--base-unit) * 4);
+}
+
+#original-info,
+#segments-info {
+  margin-bottom: calc(var(--base-unit) * 2);
+}
+
+#original-dimensions,
+#segments-summary {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+#download-all-btn {
+  margin-top: calc(var(--base-unit) * 2);
+}
+
+/* Thumbnails Grid */
+
+#thumbnails-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: calc(var(--base-unit) * 3);
+  margin-top: calc(var(--base-unit) * 4);
+}
+
+.thumbnail-card {
+  border: 1px solid var(--color-border);
+  padding: calc(var(--base-unit) * 2);
+}
+
+.thumbnail-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: contain;
+  background-color: #F5F4F0;
+  margin-bottom: calc(var(--base-unit) * 1.5);
+}
+
+.thumbnail-card .info {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  margin-bottom: calc(var(--base-unit) * 1.5);
+}
+
+.thumbnail-card button {
+  font-size: 0.85rem;
+  padding: calc(var(--base-unit) * 0.75) calc(var(--base-unit) * 1.5);
+  width: 100%;
+}
+
+/* Reset Button */
+
+#reset-btn {
+  margin-top: calc(var(--base-unit) * 2);
+}
+
+/* Footer */
+
+footer {
+  margin-top: calc(var(--base-unit) * 8);
+  text-align: center;
+}
+
+footer p {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+/* Hidden utility */
+
+[hidden] {
+  display: none !important;
+}
+
+/* Responsive */
+
+@media (max-width: 600px) {
+  html {
+    font-size: 16px;
+  }
+
+  body {
+    padding: calc(var(--base-unit) * 4) calc(var(--base-unit) * 2);
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  #drop-zone {
+    padding: calc(var(--base-unit) * 5) calc(var(--base-unit) * 2);
+  }
+
+  #thumbnails-grid {
+    grid-template-columns: 1fr;
+  }
+}

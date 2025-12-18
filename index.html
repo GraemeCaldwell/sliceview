@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SliceView — Image Segmentation Tool</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <header>
+      <h1>SliceView</h1>
+      <p class="subtitle">Segment large screenshots for AI vision analysis. Images are resized to max 1568px width and split into tiles for optimal processing.</p>
+    </header>
+
+    <section id="upload-section">
+      <div id="drop-zone">
+        <p>Drop an image here</p>
+        <p class="or">or</p>
+        <button type="button" id="choose-file-btn">Choose File</button>
+        <input type="file" id="file-input" accept="image/jpeg,image/png,image/webp,image/gif" hidden>
+      </div>
+    </section>
+
+    <section id="results-section" hidden>
+      <div id="original-info">
+        <h2>Original Image</h2>
+        <p id="original-dimensions"></p>
+      </div>
+
+      <hr>
+
+      <div id="segments-info">
+        <h2>Segments</h2>
+        <p id="segments-summary"></p>
+        <button type="button" id="download-all-btn">Download All (ZIP)</button>
+      </div>
+
+      <div id="thumbnails-grid"></div>
+
+      <hr>
+
+      <button type="button" id="reset-btn">Process Another Image</button>
+    </section>
+  </main>
+
+  <footer>
+    <p>Images are processed entirely in your browser. Nothing is uploaded.</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
