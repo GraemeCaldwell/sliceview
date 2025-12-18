@@ -7,7 +7,6 @@ const STRIDE = MAX_DIMENSION - OVERLAP;
 // DOM Elements
 const dropZone = document.getElementById('drop-zone');
 const fileInput = document.getElementById('file-input');
-const chooseFileBtn = document.getElementById('choose-file-btn');
 const uploadSection = document.getElementById('upload-section');
 const resultsSection = document.getElementById('results-section');
 const originalDimensions = document.getElementById('original-dimensions');
@@ -20,8 +19,10 @@ const resetBtn = document.getElementById('reset-btn');
 let segments = [];
 let originalFileName = '';
 
+// Clear file input on load (in case browser restores state)
+fileInput.value = '';
+
 // Event Listeners
-chooseFileBtn.addEventListener('click', () => fileInput.click());
 fileInput.addEventListener('change', handleFileSelect);
 
 dropZone.addEventListener('dragover', handleDragOver);
@@ -60,6 +61,8 @@ function handleFileSelect(e) {
   if (files.length > 0) {
     processFile(files[0]);
   }
+  // Clear so same file can be selected again
+  fileInput.value = '';
 }
 
 // File Processing
